@@ -10,7 +10,7 @@ interface UseTableConfig {
    * 是否初始化的时候请求一次
    */
   immediate?: boolean
-  fetchDataApi: () => Promise<{
+  fetchDataApi: (args: any) => Promise<{
     list: any[]
     total?: number
   }>
@@ -76,10 +76,10 @@ export const useTable = (config: UseTableConfig) => {
     /**
      * 获取表单数据
      */
-    getList: async () => {
+    getList: async (args?: any) => {
       loading.value = true
       try {
-        const res = await config?.fetchDataApi()
+        const res = await config?.fetchDataApi(args)
         console.log('fetchDataApi res', res)
         if (res) {
           dataList.value = res.list

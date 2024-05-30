@@ -120,6 +120,14 @@ const adminList = [
         },
         children: [
           {
+            path: 'demo-separation',
+            component: 'views/Components/Table/demo-separation/index',
+            name: 'demo-separation',
+            meta: {
+              title: '分离 Demo'
+            }
+          },
+          {
             path: 'default-table',
             component: 'views/Components/Table/DefaultTable',
             name: 'DefaultTable',

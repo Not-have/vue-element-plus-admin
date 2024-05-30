@@ -194,6 +194,14 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
         },
         children: [
           {
+            path: 'demo-separation',
+            component: () => import('@/views/Components/Table/demo-separation/index.vue'),
+            name: 'demo-separation',
+            meta: {
+              title: t('分离 Demo')
+            }
+          },
+          {
             path: 'default-table',
             component: () => import('@/views/Components/Table/DefaultTable.vue'),
             name: 'DefaultTable',
