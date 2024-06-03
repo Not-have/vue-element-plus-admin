@@ -1,9 +1,10 @@
 <script lang="ts" setup>
-import { unref } from 'vue'
+import { unref, reactive } from 'vue'
 import { getTableListApi } from '@/api/table'
 import { useTable } from '@/hooks/web/useTable'
+
 import { createContext } from './model'
-import { Search, Table } from './ui'
+import Main from './main/index.vue'
 
 const { tableState, tableMethods } = useTable({
   fetchDataApi: async () => {
@@ -19,17 +20,18 @@ const { tableState, tableMethods } = useTable({
   }
 })
 
+const search = reactive({
+  keyword: ''
+})
+
 createContext({
-  search: {
-    keyword: ''
-  },
+  search: search,
   value: tableState,
   dispatch: tableMethods
 })
 </script>
 <template>
-  <Search />
-  <Table />
+  <Main />
 </template>
 
 <style scoped></style>

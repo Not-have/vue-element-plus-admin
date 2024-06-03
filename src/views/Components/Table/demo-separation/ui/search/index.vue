@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { FormSchema } from '@/components/Form'
 import { Search } from '@/components/Search'
-import { useTableState, useDispatch } from '../../model'
+import { useSearch, useDispatchSearch } from '../../model'
 const schema: FormSchema[] = [
   {
-    field: 'title',
+    field: 'keyword',
     component: 'Input',
     colProps: {
       span: 24
@@ -12,12 +12,13 @@ const schema: FormSchema[] = [
   }
 ]
 
-const { getList } = useDispatch()
+const dispatchSearch = useDispatchSearch()
+const search = useSearch()
+console.log(search)
+
 const setSearchParams = (_params: any) => {
-  getList(_params)
+  dispatchSearch(_params)
 }
-const { dataList } = useTableState()
-console.log(dataList, 'tableState')
 </script>
 <template>
   <Search :schema="schema" @search="setSearchParams" @reset="setSearchParams" />

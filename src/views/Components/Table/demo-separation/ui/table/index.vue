@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { Table } from '@/components/Table'
 
-import { useTableState } from '../../model'
+import { useTable } from '../../model'
 import columns from './columns'
 
-const { loading, dataList, total, currentPage, pageSize } = useTableState()
+const { loading, dataList, total, currentPage, pageSize } = useTable()
 </script>
 <template>
   <Table

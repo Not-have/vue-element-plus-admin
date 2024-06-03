@@ -1,6 +1,6 @@
 import { inject } from 'vue'
-import { IProps } from '../../types'
+import { IModelContext } from '../types'
 
-export default function useContext(): IProps {
+export default function useContext(): IModelContext {
   return inject('demo-separation')!
 }
