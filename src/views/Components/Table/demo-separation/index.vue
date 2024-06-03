@@ -6,22 +6,24 @@ import { useTable } from '@/hooks/web/useTable'
 import { createContext } from './model'
 import Main from './main/index.vue'
 
+// 在这设置默认值之后，无法清空，很傻逼
+const search = reactive({
+  keyword: ''
+})
+
 const { tableState, tableMethods } = useTable({
   fetchDataApi: async () => {
     const { currentPage, pageSize } = tableState
     const res = await getTableListApi({
       pageIndex: unref(currentPage),
-      pageSize: unref(pageSize)
+      pageSize: unref(pageSize),
+      title: search.keyword
     })
     return {
       list: res.data.list,
       total: res.data.total
     }
   }
-})
-
-const search = reactive({
-  keyword: ''
 })
 
 createContext({

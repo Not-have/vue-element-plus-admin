@@ -9,6 +9,9 @@ export default function useDispatchSearch() {
     Object.keys(search).forEach((key) => {
       delete search[key]
     })
+
+    console.log(value, 'value')
+
     Object.assign(search, value)
   }
 }

@@ -1,6 +1,6 @@
 import { useI18n } from '@/hooks/web/useI18n'
 import { TableColumn } from '@/components/Table'
-import { BaseButton } from '@/components/Button'
+import { Edit, Delete } from '../../ops'
 
 const { t } = useI18n()
 const columns: TableColumn[] = [
@@ -34,12 +34,11 @@ const columns: TableColumn[] = [
     width: '260px',
     label: t('tableDemo.action'),
     slots: {
-      default: () => {
+      default: ({ row }) => {
         return (
           <>
-            <BaseButton type="primary">{t('exampleDemo.edit')}</BaseButton>
-            <BaseButton type="success">{t('exampleDemo.detail')}</BaseButton>
-            <BaseButton type="danger">{t('exampleDemo.del')}</BaseButton>
+            <Edit row={row} />
+            <Delete row={row} />
           </>
         )
       }
