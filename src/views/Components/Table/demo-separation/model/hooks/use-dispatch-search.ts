@@ -6,6 +6,9 @@ export default function useDispatchSearch() {
   const search = useModelContext().search
 
   return (value: IPropsSearch) => {
+    Object.keys(search).forEach((key) => {
+      delete search[key]
+    })
     Object.assign(search, value)
   }
 }
