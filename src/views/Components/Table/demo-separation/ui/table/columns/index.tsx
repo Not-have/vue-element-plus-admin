@@ -1,6 +1,6 @@
 import { useI18n } from '@/hooks/web/useI18n'
 import { TableColumn } from '@/components/Table'
-import { Edit, Delete } from '../../ops'
+import Ops from '../../ops/index.vue'
 
 const { t } = useI18n()
 const columns: TableColumn[] = [
@@ -35,12 +35,7 @@ const columns: TableColumn[] = [
     label: t('tableDemo.action'),
     slots: {
       default: ({ row }) => {
-        return (
-          <>
-            <Edit row={row} />
-            <Delete row={row} />
-          </>
-        )
+        return <Ops row={row} />
       }
     }
   }
