@@ -29,7 +29,14 @@ const rules = reactive({
 const { formRegister, formMethods } = useForm()
 const { setValues, getFormData, getElFormExpose } = formMethods
 
-const { setValues: _setValues, ref } = useFields()
+const { setContentRef } = useFields()
+const _formRegister = (parentRef, el) => {
+  console.log(parentRef, el)
+
+  formRegister(parentRef, el)
+  setContentRef(el, parentRef)
+}
+
 const submit = async () => {
   const elForm = await getElFormExpose()
   const valid = await elForm?.validate().catch((err) => {
@@ -37,7 +44,7 @@ const submit = async () => {
   })
   if (valid) {
     const formData = await getFormData()
-    _setValues(formData)
+    console.log(formData)
     return formData
   }
 }
@@ -60,5 +67,5 @@ defineExpose({
 </script>
 
 <template>
-  <Form :rules="rules" @register="formRegister" :schema="formSchema" ref="ref" />
+  <Form :rules="rules" @register="_formRegister" :schema="formSchema" />
 </template>

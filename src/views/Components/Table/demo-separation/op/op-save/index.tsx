@@ -8,8 +8,8 @@ const { t } = useI18n()
 export default function opSave(row: TableData | null) {
   return opDialog({
     content: <Content currentRow={row} />,
-    disabled: false,
     title: row ? t('exampleDemo.edit') : t('exampleDemo.add'),
-    submit: submit
+    submit: submit,
+    disabled: false
   })
 }
