@@ -10,8 +10,6 @@ export default function useDispatchSearch() {
       delete search[key]
     })
 
-    console.log(value, 'value')
-
     Object.assign(search, value)
   }
 }

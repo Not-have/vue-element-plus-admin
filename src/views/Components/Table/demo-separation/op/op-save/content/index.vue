@@ -31,8 +31,6 @@ const { setValues, getFormData, getElFormExpose } = formMethods
 
 const { setContentRef } = useFields()
 const _formRegister = (parentRef, el) => {
-  console.log(parentRef, el)
-
   formRegister(parentRef, el)
   setContentRef(el, parentRef)
 }

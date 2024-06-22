@@ -5,7 +5,7 @@ import { TableData } from '@/api/table/types'
 import { submit } from './utils'
 import Content from './content/index.vue'
 const { t } = useI18n()
-export default function opSave(row: TableData | null) {
+export default function opSave(row: TableData | null): Promise<void> {
   return opDialog({
     content: <Content currentRow={row} />,
     title: row ? t('exampleDemo.edit') : t('exampleDemo.add'),

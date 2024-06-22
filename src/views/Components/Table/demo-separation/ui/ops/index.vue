@@ -5,6 +5,7 @@ import { useI18n } from '@/hooks/web/useI18n'
 import { BaseButton } from '@/components/Button'
 import { TableData } from '@/api/table/types'
 
+import { useLoad } from '../../model'
 import { opSave } from '../../op'
 
 const { t } = useI18n()
@@ -15,8 +16,12 @@ const props = defineProps({
   }
 })
 
+const load = useLoad()
+
 const handleClick = () => {
-  opSave(props?.row || null)
+  opSave(props?.row || null).then(() => {
+    load()
+  })
 }
 </script>
 <template>
