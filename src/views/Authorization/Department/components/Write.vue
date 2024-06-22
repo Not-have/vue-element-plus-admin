@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Form, FormSchema } from '@/components/Form'
 import { useForm } from '@/hooks/web/useForm'
-import { PropType, reactive, watch } from 'vue'
+import { PropType, reactive, watch, ref, onMounted } from 'vue'
 import { useValidator } from '@/hooks/web/useValidator'
 import { DepartmentItem } from '@/api/department/types'
 
@@ -52,8 +52,22 @@ watch(
 defineExpose({
   submit
 })
+
+const form = ref()
+
+onMounted(() => {
+  watch(
+    () => form.value?.formModel,
+    (v) => {
+      console.log(v, 'watch')
+    },
+    {
+      deep: true
+    }
+  )
+})
 </script>
 
 <template>
-  <Form :rules="rules" @register="formRegister" :schema="formSchema" />
+  <Form :rules="rules" @register="formRegister" :schema="formSchema" ref="form" />
 </template>

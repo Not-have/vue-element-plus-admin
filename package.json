@@ -43,7 +43,7 @@
     "echarts-wordcloud": "^2.1.0",
     "element-plus": "2.7.4",
     "lodash-es": "^4.17.21",
-    "micro-element-plus-extra": "^1.7.2",
+    "micro-element-plus-extra": "^1.8.0",
     "mitt": "^3.0.1",
     "monaco-editor": "^0.49.0",
     "nprogress": "^0.2.0",

@@ -206,6 +206,7 @@ export default defineComponent({
     watch(
       () => unref(getProps).schema,
       (schema = []) => {
+        // 根据 schema 去渲染 formModel
         formModel.value = initModel(schema, unref(formModel))
       },
       {
