@@ -1,4 +1,4 @@
-import { opDialog } from 'micro-element-plus-extra'
+import { opDialog, DialogType } from 'micro-element-plus-extra'
 import { useI18n } from '@/hooks/web/useI18n'
 import { TableData } from '@/api/table/types'
 
@@ -9,6 +9,7 @@ export default function opSave(row: TableData | null): Promise<void> {
   return opDialog({
     content: <Content currentRow={row} />,
     title: row ? t('exampleDemo.edit') : t('exampleDemo.add'),
+    type: DialogType.LEFT,
     submit: submit,
     disabled: false
   })
