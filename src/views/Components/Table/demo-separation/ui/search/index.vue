@@ -12,25 +12,6 @@ const search = useSearch()
 const schema: FormSchema[] = [
   {
     field: 'keyword',
-    label: '概念剪子',
-    component: 'Input',
-    colProps: {
-      span: 24
-    },
-    value: search.keyword
-  },
-  {
-    field: 'keyword',
-    label: '概念剪子',
-    component: 'Input',
-    colProps: {
-      span: 24
-    },
-    value: search.keyword
-  },
-  {
-    field: 'keyword',
-    label: '概念剪子',
     component: 'Input',
     colProps: {
       span: 24
