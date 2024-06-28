@@ -15,7 +15,6 @@ export default async function submit(_v, _dv, el, parentRef): Promise<unknown> {
 
   if (valid) {
     const formData = await getFormData()
-    console.log(formData)
 
     return saveTableApi(formData)
   }
